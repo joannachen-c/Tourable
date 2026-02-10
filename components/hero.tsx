@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
-  const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 100);
@@ -13,14 +12,13 @@ export function Hero() {
   }, []);
 
   return (
-    <section
-      ref={heroRef}
-      className="relative flex min-h-screen flex-col items-center justify-center px-4 pt-20 pb-12 md:px-8"
-    >
+    <section className="relative flex flex-col items-center px-4 pt-24 pb-8 md:px-8 md:pt-28 md:pb-12">
       {/* Hero Image Container */}
       <div
-        className={`relative w-full max-w-[1280px] overflow-hidden rounded-2xl transition-all duration-1000 ${
-          isVisible ? "opacity-100 scale-100" : "opacity-0 scale-[0.97]"
+        className={`relative w-full max-w-[1320px] overflow-hidden rounded-2xl transition-all duration-[1.2s] ease-out md:rounded-3xl ${
+          isVisible
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-[0.96] translate-y-4"
         }`}
         style={{ aspectRatio: "16/9" }}
       >
@@ -31,50 +29,52 @@ export function Hero() {
           fill
           className="object-cover"
           priority
-          sizes="(max-width: 768px) 100vw, 1280px"
+          sizes="(max-width: 768px) 100vw, 1320px"
         />
 
-        {/* Overlay gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/30" />
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/40" />
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
           <h1
-            className={`font-serif text-white text-center text-4xl font-medium leading-tight tracking-tight transition-all duration-1000 delay-300 sm:text-5xl md:text-6xl lg:text-7xl ${
+            className={`font-serif text-center text-4xl font-medium leading-[1.1] tracking-tight text-white transition-all duration-[1s] delay-300 ease-out sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem] ${
               isVisible
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
+                : "opacity-0 translate-y-8"
             }`}
           >
             <span className="text-balance">
               Your Personalized 360° College Tours
             </span>
           </h1>
+
           <p
-            className={`text-white/80 mt-4 max-w-lg text-center text-base font-light tracking-wide md:mt-6 md:text-lg transition-all duration-1000 delay-500 ${
+            className={`mt-4 max-w-lg text-center text-sm font-light tracking-wide text-white/75 transition-all duration-[1s] delay-500 ease-out md:mt-5 md:text-base lg:text-lg ${
               isVisible
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
+                : "opacity-0 translate-y-8"
             }`}
           >
             Find your perfect campus, from anywhere.
           </p>
+
           <div
-            className={`mt-8 transition-all duration-1000 delay-700 ${
+            className={`mt-7 transition-all duration-[1s] delay-700 ease-out md:mt-9 ${
               isVisible
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-6"
+                : "opacity-0 translate-y-8"
             }`}
           >
-            <button className="group relative overflow-hidden rounded-full bg-white px-8 py-3 text-sm font-medium text-[#202020] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+            <button className="group relative overflow-hidden rounded-full bg-white px-7 py-3 text-sm font-medium text-[#0a0a0a] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.2)] active:scale-[1.02]">
               <span className="relative z-10">Start Your Virtual Tour</span>
-              <div className="absolute inset-0 bg-white/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-white/90 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </button>
           </div>
         </div>
 
-        {/* Subtle inner shadow for depth */}
-        <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_0_60px_rgba(0,0,0,0.3)]" />
+        {/* Inner shadow for depth / rounded edge illusion */}
+        <div className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_0_80px_rgba(0,0,0,0.4)] md:rounded-3xl" />
       </div>
     </section>
   );

@@ -17,9 +17,9 @@ const steps = [
   },
   {
     number: "03",
-    title: "Explore in 360°",
+    title: "Explore in 360\u00B0",
     description:
-      "Immerse yourself in each campus with stunning 360° views, student commentary, and interactive hotspots.",
+      "Immerse yourself in each campus with stunning 360\u00B0 views, student commentary, and interactive hotspots.",
   },
 ];
 
@@ -52,7 +52,7 @@ export function HowItWorks() {
     >
       <div className="mx-auto max-w-5xl">
         <div
-          className={`mb-16 text-center transition-all duration-800 md:mb-20 ${
+          className={`mb-16 text-center transition-all duration-[800ms] md:mb-20 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -75,12 +75,16 @@ export function HowItWorks() {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               } ${index < steps.length - 1 ? "pb-8 md:pb-12" : ""}`}
-              style={{ transitionDelay: isVisible ? `${300 + index * 200}ms` : "0ms" }}
+              style={{
+                transitionDelay: isVisible
+                  ? `${300 + index * 200}ms`
+                  : "0ms",
+              }}
             >
               {/* Step number + connector line */}
               <div className="relative flex flex-col items-center">
                 <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-2xl border border-border bg-card">
-                  <span className="text-foreground font-serif text-xl font-medium">
+                  <span className="font-serif text-xl font-medium text-foreground">
                     {step.number}
                   </span>
                 </div>
@@ -90,7 +94,9 @@ export function HowItWorks() {
                       isVisible ? "opacity-100" : "opacity-0"
                     }`}
                     style={{
-                      transitionDelay: isVisible ? `${600 + index * 200}ms` : "0ms",
+                      transitionDelay: isVisible
+                        ? `${600 + index * 200}ms`
+                        : "0ms",
                     }}
                   />
                 )}
@@ -98,10 +104,10 @@ export function HowItWorks() {
 
               {/* Step content */}
               <div className="pt-2 pb-4">
-                <h3 className="text-foreground mb-2 text-xl font-medium md:text-2xl">
+                <h3 className="mb-2 text-xl font-medium text-foreground md:text-2xl">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground max-w-md text-sm leading-relaxed md:text-base">
+                <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
                   {step.description}
                 </p>
               </div>
