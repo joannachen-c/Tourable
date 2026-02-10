@@ -35,12 +35,12 @@ export function Hero() {
         />
 
         {/* Overlay gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#202020]/50 via-transparent to-[#202020]/30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/30" />
 
         {/* Hero Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center px-6">
           <h1
-            className={`font-serif text-foreground text-center text-4xl font-medium leading-tight tracking-tight transition-all duration-1000 delay-300 sm:text-5xl md:text-6xl lg:text-7xl ${
+            className={`font-serif text-white text-center text-4xl font-medium leading-tight tracking-tight transition-all duration-1000 delay-300 sm:text-5xl md:text-6xl lg:text-7xl ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
@@ -51,7 +51,7 @@ export function Hero() {
             </span>
           </h1>
           <p
-            className={`text-foreground/80 mt-4 max-w-lg text-center text-base font-light tracking-wide md:mt-6 md:text-lg transition-all duration-1000 delay-500 ${
+            className={`text-white/80 mt-4 max-w-lg text-center text-base font-light tracking-wide md:mt-6 md:text-lg transition-all duration-1000 delay-500 ${
               isVisible
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
@@ -66,9 +66,9 @@ export function Hero() {
                 : "opacity-0 translate-y-6"
             }`}
           >
-            <button className="group relative overflow-hidden rounded-full bg-foreground px-8 py-3 text-sm font-medium text-background transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+            <button className="group relative overflow-hidden rounded-full bg-white px-8 py-3 text-sm font-medium text-[#202020] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
               <span className="relative z-10">Start Your Virtual Tour</span>
-              <div className="absolute inset-0 bg-[#e0e0e0] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <div className="absolute inset-0 bg-white/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </button>
           </div>
         </div>

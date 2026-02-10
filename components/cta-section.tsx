@@ -52,9 +52,9 @@ export function CtaSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <button className="group relative overflow-hidden rounded-full bg-foreground px-10 py-4 text-base font-medium text-background transition-all duration-300 hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+          <button className="group relative overflow-hidden rounded-full bg-foreground px-10 py-4 text-base font-medium text-background transition-all duration-300 hover:scale-105 hover:shadow-lg">
             <span className="relative z-10">Start Exploring Now</span>
-            <div className="absolute inset-0 bg-[#e0e0e0] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            <div className="absolute inset-0 bg-foreground/80 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
           </button>
         </div>
       </div>
